@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Project</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #1a1a1a;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #64ffda, transparent);
+            animation: borderFlow 2s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #64ffda;
+            letter-spacing: -0.5px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e6e6e6;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .detail-card h3 {
+            color: #64ffda;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .detail-card li {
+            margin-bottom: 0.8rem;
+            color: #e6e6e6;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(100, 255, 218, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .back-button:hover::before {
+            left: 100%;
+        }
+
+        .back-button:hover {
+            background-color: rgba(100, 255, 218, 0.05);
+        }
+
+        /* Estilo minimalista para el diagrama SVG */
+        .section-card svg {
+            filter: brightness(0.8);
+        }
+
+        .section-card svg rect {
+            fill: rgba(100, 255, 218, 0.05);
+            stroke: rgba(100, 255, 218, 0.2);
+        }
+
+        .section-card svg text {
+            font-size: 0.9rem;
+        }
+
+        /* Estilo para los enlaces */
+        a {
+            color: #64ffda;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #64ffda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Portfolio Personal</h1>
+            <div class="tech-stack">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3</span>
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">Node.js</span>
+                <span class="tech-item">Express</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">Traefik</span>
+                <span class="tech-item">AWS</span>
+                <span class="tech-item">Route 53</span>
+                <span class="tech-item">Umami</span>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h3><i class="fas fa-network-wired"></i> Arquitectura</h3>
+            <p style="line-height: 1.6; color: #e6e6e6;">
+                El portfolio es parte de una infraestructura más amplia gestionada completamente con Terraform como Infraestructura como Código (IaC). 
+                La arquitectura se despliega en AWS, utilizando una instancia EC2 de Ubuntu como servidor base, donde se ejecutan múltiples microservicios 
+                en contenedores Docker. El tráfico se gestiona mediante Traefik como reverse proxy, que maneja las reglas de enrutamiento para cada servicio. 
+                La resolución DNS se realiza a través de Route 53, apuntando al endpoint público de la instancia EC2. Para el análisis de uso y métricas, 
+                se ha integrado Umami Analytics, permitiendo un seguimiento detallado de las interacciones de los usuarios. Toda la infraestructura, 
+                incluyendo redes, seguridad, y recursos de AWS, está definida y versionada en código Terraform, permitiendo un despliegue consistente 
+                y reproducible. Para más detalles sobre la implementación de la infraestructura con Terraform, puedes visitar el 
+                <a href="https://github.com/bryanhermass/tf-projects.git">proyecto de Terraform</a>.
+            </p>
+        </div>
+
+        <div class="section-card">
+            <h3 style="text-align: center; color: #64ffda; margin-bottom: 2rem;"><i class="fas fa-project-diagram"></i> Flujo de Tráfico</h3>
+            <svg viewBox="0 0 900 180" style="width: 100%; height: 250px;">
+                <!-- Usuario -->
+                <g class="user" transform="translate(20, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">Usuario</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">Solicitud HTTP</text>
+                </g>
+
+                <!-- Route 53 -->
+                <g class="route53" transform="translate(170, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">Route 53</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">DNS Resolution</text>
+                </g>
+
+                <!-- AWS Cloud -->
+                <g class="aws-cloud" transform="translate(320, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">AWS Cloud</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">EC2 Ubuntu</text>
+                </g>
+
+                <!-- Traefik -->
+                <g class="traefik" transform="translate(470, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">Traefik</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">Reverse Proxy</text>
+                </g>
+
+                <!-- Docker Container -->
+                <g class="docker" transform="translate(620, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">Docker</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">Node Alpine</text>
+                </g>
+
+                <!-- Umami -->
+                <g class="umami" transform="translate(770, 40)">
+                    <rect x="0" y="0" width="120" height="60" rx="10" fill="rgba(100, 255, 218, 0.1)" stroke="#64ffda" stroke-width="2"/>
+                    <text x="60" y="25" text-anchor="middle" fill="#64ffda" font-size="15">Umami</text>
+                    <text x="60" y="45" text-anchor="middle" fill="#ffffff" font-size="12">Analytics</text>
+                </g>
+
+                <!-- Connection Lines -->
+                <g class="connections">
+                    <!-- Usuario to Route 53 -->
+                    <path d="M140 70 L170 70" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                    <!-- Route 53 to EC2 -->
+                    <path d="M290 70 L320 70" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                    <!-- EC2 to Traefik -->
+                    <path d="M440 70 L470 70" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                    <!-- Traefik to Docker -->
+                    <path d="M590 70 L620 70" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                    <!-- Docker to Umami -->
+                    <path d="M740 70 L770 70" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                </g>
+            </svg>
+        </div>
+
+        <div class="project-details">
+            <div class="detail-card">
+                <h3><i class="fas fa-server"></i> Infraestructura</h3>
+                <ul>
+                    <li>🚀 Contenedorizado con Docker (Node Alpine)</li>
+                    <li>🌐 Hosting en EC2 Ubuntu</li>
+                    <li>🔄 Reverse Proxy con Traefik</li>
+                    <li>🔗 DNS gestionado con Route 53</li>
+                    <li>📊 Métricas con Umami Analytics</li>
+                    <li>⚡ Infraestructura como Código con Terraform</li>
+                    <li>🔒 Gestión de seguridad y redes con Terraform</li>
+                    <li>🔄 Despliegue automatizado y reproducible</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <h3><i class="fas fa-tasks"></i> Estado del Proyecto</h3>
+                <ul>
+                    <li>✅ Diseño inicial completado</li>
+                    <li>✅ Estructura base implementada</li>
+                    <li>✅ Infraestructura desplegada</li>
+                    <li>🔄 CI/CD en proceso</li>
+                    <li>🔄 Mejoras continuas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html> 

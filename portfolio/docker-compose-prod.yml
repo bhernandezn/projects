@@ -1,0 +1,29 @@
+services:
+  portafolio:
+    image: 67566756/portafolio-production:v6
+    container_name: portafolio
+    restart: always
+    labels:
+      # Router para manejar tanto www.bhernandez.org como bhernandez.org
+      - "traefik.enable=true"
+      - "traefik.http.routers.portafolio.rule=Host(`bhernandez.org`) || Host(`www.bhernandez.org`)"
+      - "traefik.http.routers.portafolio.entrypoints=websecure"
+      - "traefik.http.routers.portafolio.tls=true"
+      - "traefik.http.routers.portafolio.tls.certresolver=myresolver"
+
+      - "traefik.http.services.portafolio.loadbalancer.server.port=3000"
+
+      # Middleware para redirigir de bhernandez.org a www.bhernandez.org
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://bhernandez.org/(.*)"
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.bhernandez.org/$1"
+      - "traefik.http.routers.portafolio.middlewares=redirect-to-www"
+    ports:
+      - 3000:3000
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    external: true
+
+#docker build --platform linux/amd64 -t 67566756/portafolio-production:v4 .

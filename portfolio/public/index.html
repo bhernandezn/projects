@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Script para analytics umami-->
+    <script async defer
+        src="https://umami.bhernandez.org/script.js"
+        data-website-id="xxxxxxxxxx"
+    ></script>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <img src="./assets/perfil.jpg" alt="Foto de perfil" class="profile-img">
+            <div class="text-container">
+                <h1 class="name">Bryan Hernández</h1>
+                <h2 class="position">DevOps Engineer</h2>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <span class="terminal-button"></span>
+                        <span class="terminal-button"></span>
+                        <span class="terminal-button"></span>
+                    </div>
+                    <div class="terminal-content">
+                        <span class="prompt">$</span>
+                        <span class="command" id="terminal-text"></span>
+                        <span class="cursor">▋</span>
+                    </div>
+                </div>
+                <a class="cv-button" onclick="handleCV()" style="cursor: pointer;">Descarga mi CV</a>
+                <div class="social-links">
+                    <a href="https://github.com/bryanhermass" 
+                       target="_blank" 
+                       class="social-icon"
+                       onclick="umami.track('github-me')">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-hern%C3%A1ndez-459090116/" 
+                       target="_blank" 
+                       class="social-icon"
+                       onclick="umami.track('linkedin-me')">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-container">
+                <h2 class="about-title">Sobre Mí</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>¡Hola! Soy Ingeniero en Administración de Redes, con una inclinación hacia la infraestructura. Tomé el desafío de desarrollar mi carrera como DevOps, rol en el que ya tengo más de dos años de experiencia.</p>
+                        <br/>
+                        <p>Ahora, estás interactuando en mi portafolio, el cual contiene diversas tecnologías de infraestructura que explico detalladamente en la sección de proyectos.</p>
+                        <br/>
+                        <p>Además, fuera del mundo de la tecnología, disfruto de capturar momentos a través de la fotografía y me apasiona la música. También, me gusta llevar mi creatividad a proyectos con microcontroladores, creando soluciones que van desde lo funcional hasta lo experimental.</p>
+                        
+                        <div class="know-more">
+                            <a href="inprogress.html" 
+                               class="know-more-link"
+                               onclick="umami.track('know-more-me')">
+                                Conóceme más <i class="fas fa-long-arrow-alt-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="skills-container">
+                <h2 class="skills-title">Tecnologías</h2>
+                <div class="skills-list">
+                    <div class="skill-row">
+                        <div class="skill-item">
+                            <img src="../assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="../assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Terraform</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="../assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Packer</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Datadog</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Prometheus</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="./assets/checkmark_dark.png" alt="check" class="skill-icon">
+                            <span>Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agregar después de la sección de skills -->
+        <section class="projects-section">
+            <h2 class="projects-title">Proyectos</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Portafolio</h3>
+                        <p class="project-description">
+                            Este proyecto despliega infraestructura en la nube utilizando Terraform y automatiza los procesos de CI/CD mediante Jenkins. Aprovecho tecnologías de código abierto para optimizar costos y hacer la infraestructura más eficiente.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="inprogress.html" 
+                               class="project-link"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               onclick="umami.track('portafolio-project-github')">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="portfolio-project.html" 
+                               class="project-link"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               onclick="umami.track('portafolio-project-know-more')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Terraform Projects</h3>
+                        <p class="project-description">
+                            Colección de módulos y proyectos de Terraform desarrollados desde cero para gestionar infraestructura como código. Este repositorio centraliza diversos proyectos de IaC, cada uno estructurado con módulos reutilizables y siguiendo las mejores prácticas de Terraform para facilitar el despliegue y mantenimiento de recursos en AWS.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HCL</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">IaC</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/bryanhermass/tf-projects.git" 
+                               class="project-link"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               onclick="umami.track('terraform-project-github')">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="inprogress.html" 
+                               class="project-link"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               onclick="umami.track('terraform-project-know-more')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+    <!-- Agregar al final del container, antes de cerrar el body -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <div class="footer-text">
+                    © 2024 Bryan Hernández. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function handleCV() {
+            // Lanzar confeti
+            const defaults = {
+                spread: 360,
+                ticks: 100,
+                gravity: 0.5,
+                decay: 0.94,
+                startVelocity: 30,
+                shapes: ['star'],
+                colors: ['#64ffda', '#ffffff', '#2d2d2d', '#4a4a4a']
+            };
+
+            function shoot() {
+                confetti({
+                    ...defaults,
+                    particleCount: 40,
+                    scalar: 1.2,
+                    shapes: ['star']
+                });
+
+                confetti({
+                    ...defaults,
+                    particleCount: 25,
+                    scalar: 0.75,
+                    shapes: ['circle']
+                });
+            }
+
+            umami.track('download-cv');
+
+            setTimeout(shoot, 0);
+            setTimeout(shoot, 100);
+            setTimeout(shoot, 200);
+
+            // Iniciar la descarga usando Fetch
+            fetch('/assets/bhernandez.pdf')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'bhernandez.pdf';
+                    
+                    // Cambio en la forma de manejar el click
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Limpieza después de un pequeño delay
+                    setTimeout(() => {
+                        document.body.removeChild(link);
+                        window.URL.revokeObjectURL(url);
+                    }, 100);
+                })
+                .catch(error => {
+                    console.error('Error al descargar el CV:', error);
+                    alert('Error al descargar el CV. Por favor, inténtelo de nuevo.');
+                });
+        }
+    </script>
+    <script>
+        const commands = [
+            'kubectl apply -f deploy.yml',
+            'helm upgrade my-project .',
+            'docker build -t myapp:latest .',
+            'terraform apply -auto-approve',
+            'aws eks update-kubeconfig --region us-east-1',
+            'git push origin main --force',
+            'docker-compose up -d',
+            'kubectl get pods -n production',
+            'ansible-playbook deploy.yml',
+            'rm -rf node_modules/'
+        ];
+
+        let currentIndex = 0;
+        let currentText = '';
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeCommand() {
+            const command = commands[currentIndex];
+            
+            if (isDeleting) {
+                currentText = command.substring(0, currentText.length - 1);
+                typingSpeed = 50;
+            } else {
+                currentText = command.substring(0, currentText.length + 1);
+                typingSpeed = 100;
+            }
+
+            document.getElementById('terminal-text').textContent = currentText;
+
+            if (!isDeleting && currentText === command) {
+                isDeleting = true;
+                typingSpeed = 2000; // Pausa antes de borrar
+            } else if (isDeleting && currentText === '') {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % commands.length;
+                typingSpeed = 500; // Pausa antes del siguiente comando
+            }
+
+            setTimeout(typeCommand, typingSpeed);
+        }
+
+        typeCommand();
+    </script>
+</body>
+</html>
