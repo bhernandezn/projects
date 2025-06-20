@@ -1,0 +1,50 @@
+replicaCount: 3
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: "kubernetes.io/os"
+          operator: "In"
+          values:
+          - "linux"
+        - key: "kubernetes.io/arch"
+          operator: "In"
+          values:
+          - "amd64"
+      - matchExpressions:
+        - key: "application"
+          operator: "In"
+          values:
+          - "services"
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      preference:
+        matchExpressions:
+        - key: "k8s-app"
+          operator: "In"
+          values:
+          - "kube-dns"
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: "instance_availability"
+          operator: "In"
+          values:
+          - "ondemand"
+corefile: |
+  .:53 {
+      errors
+      health
+      kubernetes cluster.local in-addr.arpa ip6.arpa {
+        pods insecure
+        fallthrough in-addr.arpa ip6.arpa
+      }
+      prometheus :9153
+      ready :8181
+      forward . /etc/resolv.conf
+      cache 30
+      loop
+      reload
+      loadbalance
+  } 
