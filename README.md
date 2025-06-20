@@ -36,3 +36,29 @@ Un sitio web personal desarrollado con Node.js y Express, diseñado para mostrar
 - Traefik (Proxy Reverso)
 
 **Estado del proyecto:** 🟢 Activo
+
+### ☁️ Infraestructura AWS con Terraform
+Colección de módulos Terraform para desplegar infraestructura completa en AWS con arquitectura multi-entorno.
+
+**Proyectos incluidos:**
+- **network-base**: Infraestructura de red base (VPC, subnets, gateways)
+- **rds-subnets-group**: Grupos de subnets para bases de datos RDS
+- **db-postgres**: Servicios de base de datos PostgreSQL
+- **aurora-mysql**: Clusters Aurora MySQL
+- **k8s-services**: Clusters de Kubernetes para servicios
+
+**Características principales:**
+- 🏗️ Arquitectura modular y reutilizable
+- 🔄 Múltiples entornos (staging/production)
+- 🔐 Configuración segura con KMS
+- 📊 Estado remoto en S3
+- 🏷️ Gestión de workspaces por entorno
+
+**Tecnologías utilizadas:**
+- Terraform
+- AWS (VPC, RDS, Aurora, EKS)
+- Kubernetes
+- PostgreSQL
+- MySQL
+
+**Estado del proyecto:** 🟢 Activo
